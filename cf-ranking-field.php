@@ -71,7 +71,7 @@ function cf_ranking_field_init_field( $fields ) {
 			'template' => CF_RANKING_FIELD_PATH . 'lib/config.php',
 			'preview'  => CF_RANKING_FIELD_PATH . 'lib/preview.php',
 		),
-		'handler'     => 'cf_ranking_field_handler',
+		'viewer'      => 'cf_ranking_field_viewer',
 		'scripts'     => array(
 			includes_url() . 'js/jquery/ui/core.min.js',
 			includes_url() . 'js/jquery/ui/widget.min.js',
@@ -112,7 +112,30 @@ function cf_ranking_field_create_options_array( $options ) {
  * @param [type] $form
  * @return void
  */
-function cf_ranking_field_handler( $value, $field, $form ) {
-	return $value;
+function cf_ranking_field_viewer( $value, $field, $form ) {
+
+	$return = '<ol>';
+
+	// Grab our options array.
+	$options = cf_ranking_field_create_options_array( $field['config']['options'] );
+	if ( $value ) {
+		foreach ( $value as $val ) {
+			$return .= '<li>' . $options[ $val ] . '</li>';
+		}
+	}
+
+	$return .= '</ol>';
+	return $return;
 }
+
+
+
+
+// function cf_ranking_field_process_attributes( $field ) {
+// 	if ( $field['config']['options'] ) {
+// 		$field['config']['options_array'] = cf_ranking_field_create_options_array( $field['config']['options'] );
+// 	}
+// 	return $field;
+// }
+// add_filter( 'caldera_forms_render_get_field_type-cf-ranking-field', 'cf_ranking_field_process_attributes' );
 

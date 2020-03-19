@@ -22,7 +22,7 @@ $field_base_id = Caldera_Forms_Field_Util::get_base_id( $field, null, $form );
 			<?php foreach ( $options as $key => $option ) : ?>
 				<li class="cf-ranking-field-option">
 					<label for="">
-						<input type="hidden" id="<?php echo esc_attr( $field_base_id . '_' . $key ); ?>" name="<?php echo esc_attr( $field_structure['name'] ); ?>" value="<?php echo esc_attr( $key ); ?>">
+						<input type="hidden" id="<?php echo esc_attr( $field_base_id . '_' . $key ); ?>" name="<?php echo esc_attr( $field_structure['name'] ); ?>[]" value="<?php echo esc_attr( $key ); ?>">
 						<?php echo $option; ?>
 					</label>
 				</li>
