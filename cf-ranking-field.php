@@ -77,7 +77,7 @@ function cf_ranking_field_init_field( $fields ) {
 			includes_url() . 'js/jquery/ui/widget.min.js',
 			includes_url() . 'js/jquery/ui/mouse.min.js',
 			includes_url() . 'js/jquery/ui/sortable.min.js',
-			CF_RANKING_FIELD_URL . 'assets/cf-ranking-field-frontend.js',
+			// CF_RANKING_FIELD_URL . 'assets/cf-ranking-field-frontend.js',
 		),
 		'styles'     => array(
 			CF_RANKING_FIELD_URL . 'assets/cf-ranking-field-frontend.css',

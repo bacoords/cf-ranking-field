@@ -31,3 +31,32 @@ $field_base_id = Caldera_Forms_Field_Util::get_base_id( $field, null, $form );
 		<?php echo $field_caption; ?>
 	<?php echo $field_after; ?>
 <?php echo $wrapper_after; ?>
+
+
+<?php ob_start(); ?>
+
+	<script>
+
+		(function($) {
+
+			$(document).ready(function($){
+
+				$( document ).on( 'cf.form.init', function( e, obj ){
+
+					$('.cf-ranking-field-options').sortable({
+						placeholder: "cf-ranking-field-option-placeholder"
+					});
+
+				});
+
+			});
+
+		})( jQuery );
+
+	</script>
+
+	<?php
+
+	$script_template = ob_get_clean();
+
+Caldera_Forms_Render_Util::add_inline_data( $script_template, $form );
