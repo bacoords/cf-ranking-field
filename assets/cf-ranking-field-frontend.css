@@ -1,13 +1,16 @@
 .cf-ranking-field-options {
-	list-style-position: inside;
+
 }
 .cf-ranking-field-option {
 	border: 1px solid #ccc;
-	background-color: rgba(255, 255, 255, 0.6);
+	background-color: rgba(255, 255, 255, 1);
 	border-radius: 3px;
+	padding: 5px 10px;
 	margin-bottom: 3px;
 	cursor: move;
 	font-size: .875rem;	
+	display: block;
+	width: 100%;
 }
 .cf-ranking-field-option-placeholder {
 	border: 1px solid #ccc;
@@ -17,4 +20,15 @@
 	cursor: move;
 	min-height: 1.4875rem;
 	list-style-type: none;
+}
+
+.cf-ranking-field-option select {
+	width: 15%;
+	display: inline-block;
+}
+.cf-ranking-field-option label {
+	width: 80%;
+	margin-left: 5%;
+	display: inline-block;
+	line-height: 40px;
 }
