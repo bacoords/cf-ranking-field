@@ -8,6 +8,9 @@
 		if ( ! this.el.hasClass( 'ui-sortable') ) {
 			this.init();
 		}
+		if ( ! this.el.hasClass( 'cf-ranking-select-watcher') ) {
+			this.addSelectWatcher();
+		}
 
 		return this;
 	}
@@ -23,7 +26,7 @@
 			}
 		});
 
-		self.addSelectWatcher();
+		// self.addSelectWatcher();
 
 	}
 
@@ -39,18 +42,22 @@
 	// If a select changes, update.
 	CFRankingField.prototype.addSelectWatcher = function() {
 		var self = this;
-
+		
 		self.el.find('.cf-ranking-field-option select').on( 'change', function(){
 			var newPos = $(this).val(),
-				option = $(this).parents('.cf-ranking-field-option');
+				option = $(this).parents('.cf-ranking-field-option'),
+				currentPos = self.el.find('.cf-ranking-field-option').index( option ) + 1;
 
-			console.log( newPos, option );
+			console.log( newPos, option, currentPos );
 
 			if ( 1 == newPos ) {
 				// Insert in the front.
 				option.prependTo( self.el );
 			} else {
 				// Insert after.
+				if ( currentPos > newPos ) {
+					newPos--;
+				}
 				var prevPosEl = self.el.find('.cf-ranking-field-option:nth-of-type(' + newPos + ')');
 				option.insertAfter( prevPosEl );
 			}
@@ -60,6 +67,9 @@
 			self.refreshSelects();
 			
 		});
+
+		self.el.addClass('cf-ranking-select-watcher');
+
 	}
 
 

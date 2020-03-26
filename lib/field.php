@@ -23,7 +23,7 @@ $total_options = count( $options );
 	<?php echo $field_before; ?>
 		<div id="<?php echo esc_attr( 'cf-ranking-field-options-' . $field_base_id ); ?>" class="cf-ranking-field-options">
 			<?php foreach ( $options as $key => $option ) : ?>
-				<div class="cf-ranking-field-option">
+				<div id="<?php echo esc_attr( $field_base_id . '_' . $key . '_' . 'option' ); ?>" class="cf-ranking-field-option">
 					<select name="<?php echo esc_attr( $field_base_id . '_' . $key . '_' . 'int' ); ?>" id="<?php echo esc_attr( $field_base_id . '_' . $key . '_' . 'int' ); ?>" >
 						<?php for ( $i = 1; $i <= $total_options; $i++ ) { ?>
 							<option value="<?php echo esc_attr( $i ); ?>" <?php selected( $i, $j ); ?>><?php echo $i; ?></option>
@@ -48,13 +48,9 @@ $total_options = count( $options );
 
 		(function($) {
 
-			$(document).ready(function($){
+			$( document ).on( 'cf.form.init', function( e, obj ){
 
-				$( document ).on( 'cf.form.init', function( e, obj ){
-
-					new CFRankingFieldCreator();
-
-				});
+				new CFRankingFieldCreator();
 
 			});
 

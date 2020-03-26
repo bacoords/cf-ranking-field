@@ -11,7 +11,7 @@
  * Plugin Name:       Caldera Forms Ranking Field
  * Plugin URI:        https://briancoords.com/cf-ranking-field
  * Description:       Ranking field type for Caldera Forms.
- * Version:           0.0.1
+ * Version:           0.0.3
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Brian Coords
@@ -28,10 +28,10 @@
  *
  * Use to set path to template files
  *
- * @since 0.1.0
+ * @since 0.0.1
  */
 define( 'CF_RANKING_FIELD_PATH', plugin_dir_path( __FILE__ ) );
-define( 'CF_RANKING_FIELD_VERSION', '0.1.6' );
+define( 'CF_RANKING_FIELD_VERSION', '0.0.3' );
 define( 'CF_RANKING_FIELD_URL', plugins_url( '/', __FILE__ ) );
 
 
@@ -40,7 +40,7 @@ add_action( 'caldera_forms_includes_complete', 'cf_ranking_field_init' );
 /**
  * Load plugin
  *
- * @since 0.1.0
+ * @since 0.0.1
  *
  * @uses "caldera_forms_includes_complete" action
  */
@@ -53,7 +53,7 @@ function cf_ranking_field_init() {
 /**
  * Add custom field type
  *
- * @since 0.1.0
+ * @since 0.0.1
  *
  * @uses "caldera_forms_get_field_types" filter
  *
@@ -77,10 +77,10 @@ function cf_ranking_field_init_field( $fields ) {
 			includes_url() . 'js/jquery/ui/widget.min.js',
 			includes_url() . 'js/jquery/ui/mouse.min.js',
 			includes_url() . 'js/jquery/ui/sortable.min.js',
-			CF_RANKING_FIELD_URL . 'assets/cf-ranking-field-frontend.js',
+			CF_RANKING_FIELD_URL . 'assets/cf-ranking-field-frontend.js?v=' . CF_RANKING_FIELD_VERSION,
 		),
 		'styles'     => array(
-			CF_RANKING_FIELD_URL . 'assets/cf-ranking-field-frontend.css',
+			CF_RANKING_FIELD_URL . 'assets/cf-ranking-field-frontend.css?v=' . CF_RANKING_FIELD_VERSION,
 		),
 	);
 
